@@ -121,6 +121,12 @@ public class Controller extends JFrame implements ActionListener,ListSelectionLi
                InvoiceHeader invHeader=new InvoiceHeader(id, parts[2], parts[1]);  
                invoiceHeaderList.add(invHeader);
                System.out.println(invoiceHeaderList);
+               view.setInvoiceHeaderList(invoiceHeaderList);
+             InvoiceHeaderTableModel invoicesTableModel=new InvoiceHeaderTableModel(invoiceHeaderList);
+             view.setHeaderTableModel(invoicesTableModel);
+             view.getInvHeaderTable().setModel(invoicesTableModel);
+             view.getHeaderTableModel().fireTableDataChanged();
+               
         }
          
              JOptionPane.showMessageDialog(null, " please select Invoice Line File",
